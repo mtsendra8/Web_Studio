@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diario de Estudio</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="header">
+        <p class="eyebrow">Diario de Estudio</p>
+        <h1>Diario de Estudio</h1>
+      </header>
+
+      <section class="card">
+        <h2>Registrar sesión</h2>
+
+        <form id="study-form" novalidate>
+          <div class="field">
+            <label for="session-date">Fecha</label>
+            <input id="session-date" name="session-date" type="date" required />
+          </div>
+
+          <div class="field">
+            <label for="session-theme">Tema</label>
+            <input
+              id="session-theme"
+              name="session-theme"
+              type="text"
+              maxlength="80"
+              placeholder="Ej. Matemáticas"
+              required
+            />
+          </div>
+
+          <div class="field">
+            <label for="session-minutes">Minutos</label>
+            <input
+              id="session-minutes"
+              name="session-minutes"
+              type="number"
+              min="1"
+              step="1"
+              placeholder="45"
+              required
+            />
+          </div>
+
+          <button type="submit" class="primary-button">Guardar sesión</button>
+        </form>
+      </section>
+
+      <section class="card accent-card">
+        <h2>Racha</h2>
+
+        <div class="streak-grid">
+          <div class="streak-block">
+            <p class="streak-label-top">Actual</p>
+            <div class="streak-box">
+              <span id="streak-count" class="streak-count">0</span>
+              <span class="streak-icon" aria-hidden="true">🔥</span>
+            </div>
+            <p id="streak-label" class="streak-label">Todavía no hay racha activa.</p>
+          </div>
+
+          <div class="streak-block">
+            <p class="streak-label-top">Mejor</p>
+            <div class="streak-box small">
+              <span id="best-streak-count" class="streak-count small">0</span>
+              <span class="streak-icon" aria-hidden="true">🏆</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="section-header">
+          <h2>Sesiones</h2>
+          <button id="clear-history" type="button" class="danger-button">Borrar historial</button>
+        </div>
+        <ul id="sessions-list" class="sessions-list" aria-live="polite"></ul>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
